@@ -1,5 +1,9 @@
+/** Documentation src =
+ * https://docs.gradle.org/current/samples/sample_building_java_applications.html#what_youll_build
+ * */
 plugins {
-    id 'java'
+//    id 'java'
+    id 'application'
 }
 
 group 'edu.curtin.comp2003.rover'
@@ -12,8 +16,18 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
 }
 
 test {
     useJUnitPlatform()
+}
+
+/** Add main class here to run the program
+* e.g
+* application {
+*   mainClass = "Launcher" // if main is Launcher.class
+* }*/
+application {
+    mainClass = 'edu/curtin/comp2003/rover/hardware/main'
 }
