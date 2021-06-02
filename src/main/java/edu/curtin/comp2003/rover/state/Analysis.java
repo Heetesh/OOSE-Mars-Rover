@@ -5,6 +5,11 @@ import edu.curtin.comp2003.rover.events.AnalysisListener;
 
 import java.util.Base64;
 
+/**
+ * Class representing the analysis state of the mars rover.
+ * @see MarsRover Mars Rover
+ * @author Heetesh Doorbiz
+ */
 public class Analysis extends RoverState {
     private boolean analysing = false;
 
@@ -24,14 +29,15 @@ public class Analysis extends RoverState {
 
     @Override
     public void soilAnalysis() {
-        if(!analysing) {
+        if (!analysing) {
+            analysing = true; // Starting analysis
             this.soilAnalyser.startAnalysis();
             // Using a listener to check analysis message poll
             this.rover.addListener(new AnalysisListener() {
                 @Override
                 public void action() {
                     byte[] rawResults = rover.getSoilAnalyser().pollAnalysis();
-                    if(rawResults != null) { // IF message received
+                    if (rawResults != null) { // IF message received
                         String encodedMessage = Base64.getEncoder().encodeToString(rawResults);
                         earthComm.sendMessage("S " + encodedMessage);
                         rover.setState(new Stopped(rover)); // Analysis is done
@@ -41,22 +47,8 @@ public class Analysis extends RoverState {
                 }
             });
         } else {
-            earthComm.sendMessage("! Already performing analysis");
+            earthComm.sendMessage("! Already performing soil chemistry analysis");
         }
-
-//        // Using a listener to check analysis message poll
-//        this.rover.addListener(new AnalysisListener() {
-//            @Override
-//            public void action() {
-//                byte[] rawResults = rover.getSoilAnalyser().pollAnalysis();
-//                if(rawResults != null) { // IF message received
-//                    String encodedMessage = Base64.getEncoder().encodeToString(rawResults);
-//                    earthComm.sendMessage("S " + encodedMessage);
-//                    rover.setState(new Stopped(rover)); // Analysis is done
-//                    rover.removeListener(this); // removes self from listener
-//                }
-//            }
-//        });
     }
 
 }

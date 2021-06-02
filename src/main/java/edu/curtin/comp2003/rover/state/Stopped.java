@@ -2,6 +2,11 @@ package edu.curtin.comp2003.rover.state;
 
 import edu.curtin.comp2003.rover.core.MarsRover;
 
+/**
+ * Class representing the stopped state of the mars rover.
+ * @see MarsRover Mars Rover
+ * @author Heetesh Doorbiz
+ */
 public class Stopped extends RoverState {
 
     public Stopped(MarsRover marsRover) {
