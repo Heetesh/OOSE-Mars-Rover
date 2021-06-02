@@ -47,6 +47,7 @@ I used the state pattern to represent states in the software. The software had 3
 
 
 <br>I included both a UML and state chart diagram. The state chart is mostly just to make sense of how I design the state if you are interested. I mentioned this since it doesn't look like it will be marked as per the requirements. The UML represents the software written. It is clear and shows which package classes are contained in. It starts by showing the main package edu.curtin.comp2003 and its following sub packages. Relationships have been shown using the proper arrows.
+</li>
 
 <li> Criteria 7
 
