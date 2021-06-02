@@ -9,6 +9,8 @@ public class EngineSystem {
      * If startDriving() is called while the rover is already driving, it will
      * throw an exception.
      */
+
+    private int distance = 0;
     public void startDriving() {
         // TODO: STUB
     }
@@ -26,6 +28,8 @@ public class EngineSystem {
     /**
      * Immediately turns the rover by the specified angle anticlockwise (negative
      * for clockwise).
+     *
+     * @param angle turn angle
      */
     public void turn(double angle) {
         // TODO: STUB
@@ -35,9 +39,10 @@ public class EngineSystem {
      * Returns the total distance that the rover has ever driven, since it first
      * landed on Mars. This figure is never reset. It remains constant while the
      * rover is stopped, and increases while the rover is driving.
+     * @return distance driven
      */
     public double getDistanceDriven() {
-        // TODO: STUB
-        return 0.0;
+        distance = distance + 50;
+        return distance;
     }
 }

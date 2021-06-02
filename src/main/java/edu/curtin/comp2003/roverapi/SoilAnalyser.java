@@ -15,9 +15,9 @@ public class SoilAnalyser {
     /**
      * Retrieves the results of a soil analysis, if they're ready yet. If no new
      * results have been produced, this method returns null.
+     * @return byte array of analysis data
      */
     public byte[] pollAnalysis() {
-        // TODO: STUB
-        return null;
+        return "random soil analysis done here".getBytes();
     }
 }
