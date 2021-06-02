@@ -1,6 +1,10 @@
 OOSE Criteria response by Heetesh Doorbiz
 
-If you are seeing html tags, do ignore it and go by the criteria numbers.
+If you are seeing html tags, do ignore it and go by the criteria numbers or go on 
+
+https://gist.github.com/be3593b31bf36998e7a86fd6eee3e21d
+
+
 
 <ol>
 <li> Criteria 1
