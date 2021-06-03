@@ -82,10 +82,23 @@ public class MarsRover {
                 }
             });
 
-            this.addListener(() -> {
-                double visibility = sensors.readVisibility();
-                if(visibility < 4.0 || visibility > 5.0) {
-                    state.environmentStatus(); // Calling state's method to message EnvironmentStatus
+            /*
+            Listener that checks transition between threshold.
+             */
+            this.addListener(new EventListener() {
+
+                private double prevVisibility = sensors.readVisibility();
+
+                @Override
+                public void action() {
+                    double currentVisibility = sensors.readVisibility();
+                    if (prevVisibility < 4.0 && currentVisibility > 5.0) {
+                        state.environmentStatus();
+                    } else if(prevVisibility > 5.0 && currentVisibility < 4.0) {
+                        state.environmentStatus();
+                    }
+
+                    prevVisibility = currentVisibility; // Update future previous visibility
                 }
             });
         }
