@@ -8,6 +8,8 @@ public class Sensors
      * Performs a temperature reading and returns the result in °C.
      * @return temperature value
      */
+
+    private boolean called = false;
     public double readTemperature() {
         // TODO: STUB
         return 10.0;
@@ -18,11 +20,12 @@ public class Sensors
      * @return visibility value
      */
     public double readVisibility() {
-        double random = Math.random();
-        if(Math.random() > 5.0) {
-            return 3.9;
+        if(!called) {
+            called = true;
+            return 6.0;
         } else {
-            return 5.1;
+            called = false;
+            return 3.2;
         }
     }
 
